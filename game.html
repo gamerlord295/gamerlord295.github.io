@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+
+<html lang="en" dir="ltr">
+
+<head>
+  <title>idle clickers</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="game.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+</head>
+
+<body>
+  <div class="top footer">
+    <button class="hover" id="home" type="button">upgrades</button>
+    <button class="hover" id="settings-button" type="button">settings</button>
+  </div>
+  <p id="l1"> 0 </p>
+  <input id="b1" type="button" value=" click me !! " onclick="click1()">
+  <div class="list" id="upgrades">
+    <div id="text">
+      <p id="p1"></p>
+      <p id="p2"></p>
+      <p id="p3"></p>
+    </div>
+    <div id="buttons">
+      <button class="hover rounded" id="b2" type="button" onclick="upg()"></button>
+      <button class="hover rounded" id="b3" type="button" onclick="upgIdle()"></button>
+      <button class="hover rounded" id="b4" type="button" onclick="upgSpeed()"></button>
+      <button class="hover rounded" id="b5" type="button" onclick="upgClickMulti()"></button>
+      <button class="hover rounded" id="b6" type="button" onclick="upgIdleMulti()"></button>
+    </div>
+    <div id="idle">
+      <div id="multi">
+      </div>
+    </div>
+  </div>
+  <div class="list" id="settings">
+    <button class="hover rounded">theme: light</button>
+    <button class="hover rounded" id="reset">reset</button>
+  </div>
+  <script  src="main.js" type="module"></script>
+  <script  src="data.js" type="module"></script>
+  <script  src="ui.js"></script>
+</body>
+
+</html>
