@@ -1,17 +1,62 @@
-import { idleprice , speedPrice , idleMultiPrice , click , clickerprice , clickMulti , clickMultiPrice , intSpeed , idler , money , idleMulti } from "./data.js";
+// import { intSpeed } from "./data.js";
+
+let money ,clickerprice ,click ,idleprice ,idler ,speedPrice ,clickMulti ,clickMultiPrice ,idleMulti ,idleMultiPrice, intSpeed
+idler = parseInt(localStorage.getItem('idler'));
+idleMulti = parseInt(localStorage.getItem('idleMulti'))
+money = parseInt(localStorage.getItem('currency'));
+intSpeed = parseInt(localStorage.getItem('intSpeed'))
 
 function offline_earnings(){
   let offline = Math.floor((Date.now()-parseInt(localStorage.getItem("date")))/1000)
   let earned = offline*Math.round(idler*1000/intSpeed)*idleMulti
   if(!isNaN(earned)){
     console.log(earned)
-    money = money + earned
+    money = parseInt(localStorage.getItem("currency")) + earned
     console.log(money)
     value()
   }
 }
-offline_earnings()
 
+function currency() {
+  if (!isNaN(money)) {
+    value()
+    console.log(`Not NaN ${money}`)
+    return money
+  } else {
+    money = 0
+    document.getElementById("l1").innerHTML = money;
+    localStorage.setItem('currency', 0);
+    console.log(`${money}`)
+    return money
+  }
+}
+offline_earnings()
+currency()
+
+function idleValue(){
+  if (!isNaN(idler)){
+    console.log(`Not NaN ${idler}`)
+    return idler
+  }else{
+    idler = 0
+    localStorage.setItem('idler' , 0);
+    console.log(`NaN ${idler}`)
+    return idler
+  }
+}
+idleValue()
+function idleMult(){
+  if(!isNaN(idleMulti)){
+    console.log(`Not NaN ${idleMulti}`)
+    return idleMulti
+  }else{
+    idleMulti = 1
+    localStorage.setItem('idleMulti' , 1)
+    console.log(`NaN ${idleMulti}`)
+    return idleMulti
+  }
+}
+idleMult()
 function click1(){
   money = money + (click * clickMulti) ;
 }
@@ -97,5 +142,3 @@ function idle(){
 }
 let speedInterval = setInterval(() => idle(), intSpeed);
 setInterval(() => value(), 100);
-
-export {value}
