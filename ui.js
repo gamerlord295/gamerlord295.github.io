@@ -1,15 +1,35 @@
 $(document).ready(function() {
-    let list = $("#upgrades");
+    let click = $("#click");
+    let idle = $("#idle")
     let settings = $("#settings");
-    list.show();
+    let prestige = $("#prestige")
+    click.show();
+    idle.hide();
     settings.hide();
-    $("#settings-button").click(function(){
-        list.hide();
-        settings.show();
-    });
-    $("#home").click(function(){
-        list.show();
+    prestige.hide();
+    $(".click-button").click(function(){
         settings.hide();
+        idle.hide();
+        prestige.hide();
+        click.show();
+    });
+    $(".idle-button").click(function(){
+        click.hide();
+        settings.hide();
+        prestige.hide();
+        idle.show();
+    })
+    $(".prestige-button").click(function(){
+        prestige.show();
+        click.hide();
+        settings.hide();
+        idle.hide();
+    })
+    $(".settings-button").click(function(){
+        click.hide();
+        idle.hide();
+        prestige.hide();
+        settings.show();
     });
     $("#reset").click(function(){
         localStorage.clear();
