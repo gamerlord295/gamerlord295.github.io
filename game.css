@@ -167,7 +167,7 @@ text{
 }
 
 .radio-input {
-  --container_width: 93.2vw;
+  --container_width: 95vw;
   position: relative;
   display: flex;
   align-items: center;
