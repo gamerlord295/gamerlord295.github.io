@@ -10,33 +10,58 @@
 </head>
 
 <body>
-  <div class="top footer">
-    <button class="hover" id="home" type="button">upgrades</button>
-    <button class="hover" id="settings-button" type="button">settings</button>
-  </div>
   <p id="l1"> 0 </p>
   <input id="b1" type="button" value=" click me !! " onclick="click1()">
-  <div class="list" id="upgrades">
-    <div id="text">
-      <p id="p1"></p>
-      <p id="p2"></p>
-      <p id="p3"></p>
+  <div class="list rounded" id="list">
+    <div class="radio-input">
+      <label>
+      <input value="value-1" name="value-radio" class="click-button" id="value-1" type="radio" checked="">
+      <span>click</span>
+      </label>
+      <label>
+        <input value="value-2" name="value-radio" class="idle-button" id="value-2" type="radio">
+      <span>idle</span>
+      </label>
+      <label>
+        <input value="value-3" name="value-radio" class="prestige-button" id="value-3" type="radio">
+      <span>prestige</span>
+      </label>
+      <label>
+        <input value="value-3" name="value-radio" class="settings-button" id="value-3" type="radio">
+      <span>settings</span>
+      </label>
+      <span class="selection"></span>
     </div>
-    <div id="buttons">
-      <button class="hover rounded" id="b2" type="button" onclick="upg()"></button>
-      <button class="hover rounded" id="b3" type="button" onclick="upgIdle()"></button>
-      <button class="hover rounded" id="b4" type="button" onclick="upgSpeed()"></button>
-      <button class="hover rounded" id="b5" type="button" onclick="upgClickMulti()"></button>
-      <button class="hover rounded" id="b6" type="button" onclick="upgIdleMulti()"></button>
-    </div>
-    <div id="idle">
-      <div id="multi">
+    <!-- <div class="list-buttons">
+      <input class="hover rounded focus" id="click-button" type="radio" checked="">click</input>
+      <input class="hover rounded focus" id="idle-button" type="radio">idle</input>
+      <input class="hover rounded focus" id="prestige-button" type="radio">prestige</input>
+      <input class="hover rounded focus" id="settings-button" type="radio">settings</input>
+    </div> -->
+    <div class="upgrade" id="click">
+      <div id="text">
+        <p id="p1"></p>
+      </div>
+      <div class="buttons">
+        <button class="hover rounded" id="b2" type="button" onclick="upg()"></button>
+        <button class="hover rounded" id="b5" type="button" onclick="upgClickMulti()"></button>
       </div>
     </div>
-  </div>
-  <div class="list" id="settings">
-    <button class="hover rounded">theme: light</button>
-    <button class="hover rounded" id="reset">reset</button>
+    <div class="upgrade" id="idle">
+      <p id="p2"></p>
+      <div class="buttons">
+        <button class="hover rounded" id="b3" type="button" onclick="upgIdle()"></button>
+        <button class="hover rounded" id="b4" type="button" onclick="upgSpeed()"></button>
+        <button class="hover rounded" id="b6" type="button" onclick="upgIdleMulti()"></button>
+      </div>
+    </div>
+    <div class="upgrade" id="prestige">
+      <h1>coming soon!</h1>
+    </div>
+    <div class="list" id="settings">
+      <button class="hover rounded">theme: light</button>
+      <button class="hover rounded" id="reset">reset</button>
+    </div>
   </div>
   <script  src="main.js"></script>
   <script  src="data.js"></script>
