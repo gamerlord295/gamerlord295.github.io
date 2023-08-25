@@ -3,13 +3,13 @@
 <html lang="en" dir="ltr">
 
 <head>
-  <title>idle clickers</title>
+  <title>idle clicker</title>
   <meta charset="utf-8">
   <link rel="stylesheet" href="game.css">
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 
-<body>
+<body class="">
   <p id="l1"> 0 </p>
   <input id="b1" type="button" value=" click me !! " onclick="click1()">
   <div class="list rounded" id="list">
@@ -59,7 +59,7 @@
       <h1>coming soon!</h1>
     </div>
     <div class="list" id="settings">
-      <button class="hover rounded">theme: light</button>
+      <button class="hover rounded" id="switch" onclick="themeChange()">theme: pink</button>
       <button class="hover rounded" id="reset">reset</button>
     </div>
   </div>

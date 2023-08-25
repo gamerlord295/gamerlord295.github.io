@@ -1,5 +1,17 @@
-body{
+.light{
+  --buttons : #F68088;
+  --hover:#E24559;
+  --font: black;
+  --list: #FEBBBB;
   background: #FFF2F2 ;
+}
+.dark{
+  --buttons : #144272;
+  --hover:#0A2647;
+  --font: white;
+  --list: #205295;
+  background: #2C74B3 ;
+  color: white;
 }
 #l1 {
   margin-top: 60px;
@@ -10,6 +22,7 @@ body{
 #b1 {
   position: absolute;
   background: transparent;
+  color: var(--font);
   z-index: 0;
   width: 100%;
   height: 100%;
@@ -17,86 +30,16 @@ body{
   top: 0%;
   border: none;
 }
-/* .list{
-  position: absolute;
-  display: grid;
-  grid-template-areas: row;
-  background-color:#FEBBBB ;
-  border-radius: 10px;
-  margin:0px 1% 0px 1%;
-  bottom: 2%;
-  width: 96%;
-}
-#list{
-  height: 110px;
-}
-#settings{
-  flex-direction: row;
-  gap: 10px;
-  height: 50px;
-}
-#settings button{
-  margin: 10px;
-  height: 30px;
-  width: 100%;
-}
-#text{
-  display: grid;
-  grid-auto-flow: column;
-  margin: 0 10px;
-}
 
-#buttons{
-  display: grid;
-  gap: 1%;
-  padding: 1%;
-  grid-auto-flow: column;
-}
-@media (min-height:800px) {
-  #list{
-    display: grid;
-    grid-auto-flow: row;
-    grid-template-rows: 10% 90%;
-    min-height: 300px;
-  }
-  .list-buttons{
-    display: flex;
-    flex-direction: row;
-  }
-  #click{
-    display: grid;
-    grid-template-rows: 50% 50%;
-  }
-  #text {
-    display: grid;
-    grid-auto-flow: row;
-    margin-left: 5%;
-  }
-  #buttons {
-    grid-auto-flow: row;
-    justify-content: end;
-    align-content: space-evenly;
-    grid-template-rows: 19% 19% 19% 19% 19%;
-    width: 100px;
-  }
-}
-#list button{
-  height: 100%;
-  width: 100%;
-  z-index: 2;
-  min-height: 45px;
-  padding: 0;
-}
- */
 .hover:hover{
-  background-color: #E24559;
+  background-color: var(--hover);
   transform: translateY(-5px);
-  box-shadow: black 0px 5px 0px 0px;
+  box-shadow: var(--font) 0px 5px 0px 0px;
   transition: 0.5s;
 }
 
 .hover:active , .focus:focus{
-  background-color: #E24559;
+  background-color: var(--hover);
   transform: translateY(0.01rem);
   box-shadow: gray 0px -1px 0px 1.5px;
 }
@@ -107,7 +50,8 @@ body{
 
 button{
   border: none;
-  background-color: #F68088;
+  background-color: var(--buttons);
+  color: var(--font);
   outline: none;
   transition: 0.5s;
 }
@@ -125,10 +69,10 @@ text{
   margin: 2.5%;
   width: 95%;
   height: 25%;
-  background-color: #FEBBBB;
+  background-color: var(--list);
 }
 
-.list-buttons{
+/* .list-buttons{
   display: grid;
   grid-template-columns: auto auto auto auto;
   margin: 5px;
@@ -140,7 +84,7 @@ text{
 .list-buttons button{
   font-size: 15px;
   font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-}
+} */
 
 .upgrade{
   display: grid;
@@ -172,8 +116,8 @@ text{
   display: flex;
   align-items: center;
   border-radius: 9999px;
-  background-color:  #FEBBBB;
-  color: #000000;
+  background-color:  var(--list);
+  color: var(--font);
   width: var(--container_width);
   overflow: hidden;
   border-radius: 5px;
@@ -206,7 +150,7 @@ text{
 
 
 .radio-input label:has(input:checked) ~ .selection {
-  background-color: #F68088;
+  background-color: var(--buttons);
   display: inline-block;
 }
 

@@ -18,10 +18,13 @@ clickerprice = parseInt(localStorage.getItem('clickerprice'));
 clickMulti = parseInt(localStorage.getItem('clickMulti'))
 clickMultiPrice = parseInt(localStorage.getItem('clickMultiPrice'))
 
+theme = parseInt(localStorage.getItem('theme')) 
+
 idlePriceText = document.getElementById("b3").innerHTML = `upgrade idle ${Math.round(idleprice)}$`;
 clickPriceText = document.getElementById("b2").innerHTML = `upgrade clicker ${Math.round(clickerprice)}$`;
 idleMultiPriceText = document.getElementById("b6").innerHTML = `idle multiplier ${Math.round(idleMultiPrice)}$`
 clickMultiPriceText = document.getElementById("b5").innerHTML = `click multiplier ${Math.round(clickMultiPrice)}$`
+
 
 intSpeedPrice()
 
@@ -48,7 +51,41 @@ function check(y ,id ,value){
     console.log("created item " + id)
   }
 }
-check(click,"click",1);check(intSpeed,"intSpeed",1000);check(clickMulti,"clickMulti",1);
+function load(){
+  checkText(clickerprice,"clickerprice",10,clickPriceText)
+  checkText(idleprice ,"idleprice" ,15 ,idlePriceText)
+  checkText(idleMultiPrice,"idleMultiPrice",1000 ,idleMultiPriceText)
+  checkText(clickMultiPrice,"clickMultiPrice",1000,clickMultiPriceText)
+  check(click,"click",1);check(intSpeed,"intSpeed",1000);check(clickMulti,"clickMulti",1);
+  check(theme,"theme",0)
+}
+
+body = document.querySelector("body");
+Switch = document.getElementById("switch")
+
+if (theme === 0) {
+  body.classList.add("light");
+  Switch.innerHTML = "theme: pink"
+} else {
+  body.classList.add("dark");
+  Switch.innerHTML = "theme: blue"
+}
+
+function themeChange(){
+  if (theme === 0) {
+    body.classList.add('dark')
+    body.classList.remove('light')
+    localStorage.setItem("theme" , 1)
+    theme = 1
+    Switch.innerHTML = "theme: blue"
+  }else if(theme === 1){
+    body.classList.add('light')
+    body.classList.remove('dark')
+    localStorage.setItem("theme" , 0)
+    theme = 0
+    Switch.innerHTML = "theme: pink"
+  }
+};
 
 function checkText(y , id , value , text){
   if (!isNaN(y)){
@@ -59,10 +96,7 @@ function checkText(y , id , value , text){
     localStorage.setItem(id, value)
   }
 }
-checkText(clickerprice,"clickerprice",10,clickPriceText)
-checkText(idleprice ,"idleprice" ,15 ,idlePriceText)
-checkText(idleMultiPrice,"idleMultiPrice",1000 ,idleMultiPriceText)
-checkText(clickMultiPrice,"clickMultiPrice",1000,clickMultiPriceText)
+
 function element(el){
   return document.querySelector(el)
 }
@@ -206,4 +240,5 @@ function idle(){
 }
 let speedInterval = setInterval(() => idle(), intSpeed);
 setInterval(() => value(), 100);
-// setTimeout(() => , 50);
+load()
+// setTimeout(()=> r(), 2000)
