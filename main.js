@@ -49,6 +49,7 @@ function check(y ,id ,value){
     y = value
     localStorage.setItem(id, value)
     console.log("created item " + id)
+    location.reload()
   }
 }
 function load(){
@@ -160,9 +161,6 @@ function idleMult(){
 idleMult()
 function click1(){
   money = money + (click * clickMulti) ;
-  if (isNaN(money)) {
-    location.reload()
-  }
 }
 
 function upg(){
