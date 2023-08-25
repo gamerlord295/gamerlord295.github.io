@@ -56,9 +56,12 @@ function load(){
   checkText(idleprice ,"idleprice" ,15 ,idlePriceText)
   checkText(idleMultiPrice,"idleMultiPrice",1000 ,idleMultiPriceText)
   checkText(clickMultiPrice,"clickMultiPrice",1000,clickMultiPriceText)
-  check(click,"click",1);check(intSpeed,"intSpeed",1000);check(clickMulti,"clickMulti",1);
+  check(click,"click",1);
+  check(intSpeed,"intSpeed",1000);
+  check(clickMulti,"clickMulti",1);
   check(theme,"theme",0)
-}
+};
+load()
 
 body = document.querySelector("body");
 Switch = document.getElementById("switch")
@@ -157,6 +160,9 @@ function idleMult(){
 idleMult()
 function click1(){
   money = money + (click * clickMulti) ;
+  if (isNaN(money)) {
+    location.reload()
+  }
 }
 
 function upg(){
@@ -240,5 +246,3 @@ function idle(){
 }
 let speedInterval = setInterval(() => idle(), intSpeed);
 setInterval(() => value(), 100);
-load()
-// setTimeout(()=> r(), 2000)
